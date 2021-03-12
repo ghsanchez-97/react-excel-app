@@ -1,15 +1,16 @@
+import { Table } from 'antd';
 import React from 'react';
 import { OutTable,ExcelRenderer } from 'react-excel-renderer';
 
 class ExcelPage extends React.Component{
-    // constructor(props){
-    //     super(props);
-    //     this.state = {};
-    // }
-
-    state = {
-        rows: "",
-        cols: ""
+    constructor(props){
+        super(props);
+        this.state = {
+            file: {},
+            cols: [],
+            rows: []
+        };
+        this.fileHandler = this.fileHandler.bind(this);
     }
 
     fileHandler = (event) => {
@@ -23,21 +24,35 @@ class ExcelPage extends React.Component{
                     cols: resp.cols,
                     rows: resp.rows
                 });
-                console.log(this.setState.rows,this.state.cols)
+                console.log(this.state.rows,this.state.cols)
             }
         });
     }
 
-    // findHandler = (e) => {
-
-    // }
-
     render(){
         return (
-            <div>
-                <input type="file" onChange={this.fileHandler.bind(this)} />
-                <div className="container">
-                    {this.state.rows && <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="ExcelTable2013" tableHeaderRowClass="heading" />}
+            <div className="container">
+                <div className="row">
+                    <input className="form-control col-md-4" type="file" onChange={this.fileHandler}/>
+                </div>
+
+                <div className="row">
+                    <div className="col">
+                        {/* {this.state.rows && <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="ExcelTable2013" tableHeaderRowClass="heading" />}  */}
+
+                        <table className="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">{this.state.rows[0]}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">{this.state.rows[1]}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                   
                 </div>
             </div>
         )
