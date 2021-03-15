@@ -1,7 +1,6 @@
 import React from 'react';
 import { OutTable,ExcelRenderer } from 'react-excel-renderer';
 import './styles/Excel.css';
-import { DataGrid } from '@material-ui/data-grid'
 
 class ExcelPage extends React.Component{
 
