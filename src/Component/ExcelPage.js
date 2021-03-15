@@ -1,8 +1,11 @@
-import { Table } from 'antd';
 import React from 'react';
 import { OutTable,ExcelRenderer } from 'react-excel-renderer';
+import './styles/Excel.css';
+import { DataGrid } from '@material-ui/data-grid'
 
 class ExcelPage extends React.Component{
+
+    
     constructor(props){
         super(props);
         this.state = {
@@ -30,31 +33,19 @@ class ExcelPage extends React.Component{
     }
 
     render(){
+
         return (
-            <div className="container">
-                <div className="row">
-                    <input className="form-control col-md-4" type="file" onChange={this.fileHandler}/>
+            <div className="container App">
+                <div className="row align-items-center">
+                    <input className="form-control col" type="file" onChange={this.fileHandler}/>
                 </div>
 
-                <div className="row">
-                    <div className="col">
-                        {/* {this.state.rows && <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="ExcelTable2013" tableHeaderRowClass="heading" />}  */}
-
-                        <table className="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th scope="col">{this.state.rows[0]}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">{this.state.rows[1]}</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>                   
-                </div>
-            </div>
+                 <div className="row">
+                     <div className="col">
+                         {this.state.rows && <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="table"            tableHeaderRowClass="heading" />} 
+                     </div>                   
+                 </div>
+             </div>
         )
     }
 }
