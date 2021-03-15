@@ -41,7 +41,7 @@ class ExcelPage extends React.Component{
 
                  <div className="row">
                      <div className="col">
-                         {this.state.rows && <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="table"            tableHeaderRowClass="heading" />} 
+                         {this.state.rows && <OutTable data={this.state.rows} columns={this.state.cols} tableClassName="table"  tableHeaderRowClass="heading" />} 
                      </div>                   
                  </div>
              </div>
